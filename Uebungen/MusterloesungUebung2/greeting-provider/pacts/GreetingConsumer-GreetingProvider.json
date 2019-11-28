@@ -1,0 +1,99 @@
+{
+  "consumer": {
+    "name": "GreetingConsumer"
+  },
+  "provider": {
+    "name": "GreetingProvider"
+  },
+  "interactions": [
+    {
+      "description": "Speichern eines neuen Grusses",
+      "request": {
+        "method": "PUT",
+        "path": "/greetings/formal",
+        "body": {
+          "greeting": {
+            "type": "formal",
+            "phrase": "Good day"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "Loeschen eines Grusses",
+      "request": {
+        "method": "DELETE",
+        "path": "/greetings/formal"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "Abfrage aller Gruesse mit vorhandenen Daten",
+      "request": {
+        "method": "GET",
+        "path": "/greetings"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "greetings": [
+            {
+              "type": "formal",
+              "phrase": "Good morning"
+            },
+            {
+              "type": "casual",
+              "phrase": "Hey"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "Abfrage eines nicht existierenden Grusses",
+      "request": {
+        "method": "GET",
+        "path": "/greetings/formal"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "Abfrage eines existierenden Grusses",
+      "request": {
+        "method": "GET",
+        "path": "/greetings/casual"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "greeting": {
+            "type": "casual",
+            "phrase": "Hey"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}

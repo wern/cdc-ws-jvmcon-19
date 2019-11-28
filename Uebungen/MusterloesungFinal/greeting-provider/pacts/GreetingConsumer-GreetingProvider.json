@@ -1,0 +1,122 @@
+{
+  "consumer": {
+    "name": "GreetingConsumer"
+  },
+  "provider": {
+    "name": "GreetingProvider"
+  },
+  "interactions": [
+    {
+      "description": "Loeschen eines Grusses",
+      "providerState": "Es gibt einen formal Gruss",
+      "request": {
+        "method": "DELETE",
+        "path": "/greetings/formal"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "Abfrage eines existierenden Grusses",
+      "providerState": "Es gibt einen casual Gruss",
+      "request": {
+        "method": "GET",
+        "path": "/greetings/casual"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "greeting": {
+            "type": "casual",
+            "phrase": "Hey"
+          }
+        }
+      }
+    },
+    {
+      "description": "Abfrage aller Gruesse ohne vorhandene Daten",
+      "providerState": "Es gibt keine Gruesse",
+      "request": {
+        "method": "GET",
+        "path": "/greetings"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "greetings": [
+
+          ]
+        }
+      }
+    },
+    {
+      "description": "Abfrage eines nicht existierenden Grusses",
+      "providerState": "Es gibt keinen formal Gruss",
+      "request": {
+        "method": "GET",
+        "path": "/greetings/formal"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+        }
+      }
+    },
+    {
+      "description": "Abfrage aller Gruesse mit vorhandenen Daten",
+      "providerState": "Es gibt zwei Gruesse",
+      "request": {
+        "method": "GET",
+        "path": "/greetings"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "greetings": [
+            {
+              "type": "formal",
+              "phrase": "Good morning"
+            },
+            {
+              "type": "casual",
+              "phrase": "Hey"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "Speichern eines neuen Grusses",
+      "providerState": "Es gibt keinen formal Gruss",
+      "request": {
+        "method": "PUT",
+        "path": "/greetings/formal",
+        "body": {
+          "greeting": {
+            "type": "formal",
+            "phrase": "Good day"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  }
+}

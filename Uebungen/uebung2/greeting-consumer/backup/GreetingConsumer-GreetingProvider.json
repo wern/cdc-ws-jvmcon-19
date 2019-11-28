@@ -1,0 +1,36 @@
+{
+  "provider": {
+    "name": "GreetingProvider"
+  },
+  "consumer": {
+    "name": "GreetingConsumer"
+  },
+  "interactions": [
+    {
+      "description": "Eine Einfache Hello World Interaktion für den Vortrag am Campus",
+      "request": {
+        "method": "GET",
+        "path": "/campus/greeting"
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "greeting": "Hallo vom MATHEMA Campus!"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Es ist MATHEMA Campus"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "3.6.6"
+    }
+  }
+}

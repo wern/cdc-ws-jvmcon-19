@@ -1,0 +1,8 @@
+1. helloworld-provider kopieren
+2. Pact schreiben
+3. Provider verification und Provider fixen
+4. Consumer verification mit Pact standalone und Browser
+pact-mock-service --consumer HelloWorldConsumer --provider HelloWorldProvider --port 1234 --pact-specification-version 3
+curl -X PUT "X-Pact-Mock-Service: true" -d@HelloWorldConsumer-HelloWorldProvider.json localhost:1234/interactions
+
+curl -X DELETE "X-Pact-Mock-Service: true" localhost:1234/interactions

@@ -1,0 +1,28 @@
+<h2>Greetings</h2>
+<form [formGroup]="greetingForm" (ngSubmit)="saveGreeting(greetingForm.value)">
+  <div>
+    <label for="type">
+      Type:
+    </label>
+    <input id="type" type="text" formControlName="type">
+  </div>
+  <br/>
+  <div>
+    <label for="phrase">
+      Phrase:
+    </label>
+    <input id="phrase" type="text" formControlName="phrase">
+  </div>
+  <br/>
+  <button class="button" type="submit">Save</button>
+</form>
+<br/>
+<button (click)="loadGreetings()">Load</button>
+<p *ngIf="greetings.greetings.length > 0">Greetings result:</p>
+<ul>
+  <li *ngFor="let greeting of greetings.greetings">
+    <p>{{greeting.type}}: {{greeting.phrase}}
+      <button (click)="deleteGreeting(greeting)">Delete</button>
+    </p>
+  </li>
+</ul>

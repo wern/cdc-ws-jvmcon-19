@@ -1,0 +1,13 @@
+1. hellworld-consumer kopieren
+2. Eine Beispielinteraktion mit dem Java Pact DSL schreiben
+3. Teilnehmer weitere Interaktionen schreiben lassen
+
+	Brauchen wir hier Browser verifikation?
+	
+	
+4. Eine Beispielinteraktion mit Angular schreiben
+
+    npm run test
+
+5. Die anderen Interaktionen kopieren und die Pacts generieren lassen
+6. Provider verification mit greeting-provider
